@@ -6,25 +6,7 @@ Created and Provided to the Community by
 
 Jorge Orchilles - Chief Technology Officer
 
-**[Executive Summary](#_j10hmflgpcoi) 2**
-
-**[Goals](#_k0geosa4fwgx) 3**
-
-**[Methodology](#_3ot1piahqzpb) 3**
-
-**[Roles and Responsibilities](#_gu552ng5hm7) 4**
-
-**[Cyber Threat Intelligence](#_l52uxvxy181l) 7**
-
-**[Preparation](#_t12zjjaood4d) 12**
-
-**[Exercise Execution](#_whdjhdbkdbel) 16**
-
-**[Lessons Learned](#_sa7p9p84hrub) 18**
-
-**[About SCYTHE](#_y8snv61ax0wn) 18**
-
-## Executive Summary
+## Summary
 
 This document defines a **Purple Team Exercise Framework (PTEF)** to facilitate the creation of a formal Purple Team Program by performing adversary emulations as **Purple Team Exercises** and/or **Continuous Purple Teaming Operations**. A Purple Team is a virtual team where the following teams work together:
 
@@ -189,8 +171,6 @@ A matrix should be created showing expected outcomes and team participation:
 
 | **Test Case** | **Tactic** | **Technique** | **ATT&amp;CK Mapping** | **Expected Detection** | **Expected Visibility** |
 | --- | --- | --- | --- | --- | --- |
-| \&lt;Test Case\&gt; | \&lt;Tactic\&gt; | \&lt;Technique\&gt; | \&lt;ATT&amp;CK ID\&gt;
- | \&lt;Control\&gt; | SOC, Hunt, and/or DFIR |
 
 ## Create an Adversary Emulation Plan
 
@@ -326,12 +306,12 @@ A Manager of one of the teams, or the CISO, should kick the Purple Team Exercise
 ## Exercise Flow
 
 1. Cyber Threat Intelligence, Exercise Coordinator, and/or Red Team presents the adversary, TTPs, and technical details:
-  - Adversary behavior
-  - Procedure
-  - Tool used
-  - Attack Vector
-  - Delivery Method
-  - Privilege gained
+    - Adversary behavior
+    - Procedure
+    - Tool used
+    - Attack Vector
+    - Delivery Method
+    - Privilege gained
 2. Purple Team discussion of expected controls based on TTP
   - SOC: Any logs or alerts for this TTP
   - Hunt Team: Any Hunt Cases for this TTP
