@@ -6,10 +6,6 @@ Created and Provided to the Community by
 
 Jorge Orchilles - Chief Technology Officer
 
-@JorgeOrchilles
-
-©️ 2020 SCYTHE Inc.
-
 **[Executive Summary](#_j10hmflgpcoi) 2**
 
 **[Goals](#_k0geosa4fwgx) 3**
@@ -18,67 +14,13 @@ Jorge Orchilles - Chief Technology Officer
 
 **[Roles and Responsibilities](#_gu552ng5hm7) 4**
 
-[Sponsors](#_72ucdh2kq51o) 5
-
-[Cyber Threat Intelligence](#_ngou4rhp2z2i) 5
-
-[Red Team](#_66jb4emsxjq8) 5
-
-[Security Operations Center (Blue Team)](#_b4truxmp9p70) 6
-
-[Hunt Team (Blue Team)](#_62hes7ku0bby) 6
-
-[Digital Forensics &amp; Incident Response (Blue Team)](#_s9f9o93umg3r) 6
-
 **[Cyber Threat Intelligence](#_l52uxvxy181l) 7**
-
-[Understand the Target Organization](#_e76g5lcosmdz) 7
-
-[Identify the Adversary to Emulate](#_mzxq7cbv8ezx) 7
-
-[Gather Cyber Threat Intelligence](#_mzxq7cbv8ezx) 8
-
-[Extract TTPs](#_mzxq7cbv8ezx) 9
-
-[Analyze and Organize](#_i9ffyf1vbdxm) 10
-
-[Table Top TTPs with Managers](#_zh9obsb9l0me) 10
-
-[Create an Adversary Emulation Plan](#_wqh2w2smorct) 11
 
 **[Preparation](#_t12zjjaood4d) 12**
 
-[Logistics](#_f4v7gmlc6ycc) 12
-
-[Target Systems](#_1zrscj68q0o0) 13
-
-[Security Tools](#_mh3o7jndhgmr) 13
-
-[Target Accounts](#_akpd3diphjjp) 13
-
-[Attack Infrastructure](#_vsi9y8wsrphy) 14
-
-[External Infrastructure](#_ddv64qa4mmq7) 14
-
-[Internal Infrastructure](#_3bmrxtac98ek) 14
-
-[Red Team Preparation](#_pnzf5r5h5fyu) 14
-
-[Blue Team Preparation](#_8qvg4u5figd4) 15
-
 **[Exercise Execution](#_whdjhdbkdbel) 16**
 
-[Kick Off](#_2clrbf9m6yaa) 16
-
-[Exercise Flow](#_lpyfpiz3nxaj) 16
-
-[Tracking Exercise](#_i14vu9ohysr5) 17
-
 **[Lessons Learned](#_sa7p9p84hrub) 18**
-
-[Tracking Action items](#_q3k24c4shlfq) 18
-
-[Retesting](#_561byx73di5w) 18
 
 **[About SCYTHE](#_y8snv61ax0wn) 18**
 
@@ -176,9 +118,6 @@ If the organization has a Hunt Team, they should participate, as well. Very litt
 ## Digital Forensics &amp; Incident Response (Blue Team)
 
 Digital Forensics and Incident Response (DFIR) analysts should participate in the Purple Team Exercise, as well. Very little time is expected from (DFIR) teams in the Preparation phase but the full attention of analysts in attendance is required during the Exercise Execution. DFIR Managers should remove all incident cases from exercise attendees so daily case work can continue and attendance will not affect the DFIR analyst&#39;s performance.
-
-##
-
 
 ## Cyber Threat Intelligence
 
@@ -371,9 +310,6 @@ Red Team is responsible for establishing the Purple Team Exercise attack infrast
   - Sysmon
   - Processmon
 
-##
-
-
 ## Exercise Execution
 
 Red Team &amp; Blue Team Managers should arrive early to ensure all systems are working:
@@ -390,33 +326,33 @@ A Manager of one of the teams, or the CISO, should kick the Purple Team Exercise
 ## Exercise Flow
 
 1. Cyber Threat Intelligence, Exercise Coordinator, and/or Red Team presents the adversary, TTPs, and technical details:
-  1. Adversary behavior
-  2. Procedure
-  3. Tool used
-  4. Attack Vector
-  5. Delivery Method
-  6. Privilege gained
+  - Adversary behavior
+  - Procedure
+  - Tool used
+  - Attack Vector
+  - Delivery Method
+  - Privilege gained
 2. Purple Team discussion of expected controls based on TTP
-  1. SOC: Any logs or alerts for this TTP
-  2. Hunt Team: Any Hunt Cases for this TTP
-  3. DFIR: Documented methods to identify if TTP was leveraged
+  - SOC: Any logs or alerts for this TTP
+  - Hunt Team: Any Hunt Cases for this TTP
+  - DFIR: Documented methods to identify if TTP was leveraged
 3. Red Team executes the TTP
-  1. Provides attacker IP
-  2. Provides target
-  3. Provides exact time
-  4. Shows the attack on projector
+  - Provides attacker IP
+  - Provides target
+  - Provides exact time
+  - Shows the attack on projector
 4. SOC, Hunt, and DFIR follow process to identify evidence of TTP
-  1. Time should be monitored to meet expectation and move exercise along
+  - Time should be monitored to meet expectation and move exercise along
 5. Share screen if TTP was identified, received alert, logs, or forensics
-  1. Time to detect
-  2. Time to receive alert
-  3. Red Team stops TTP
-  4. Show on screen TTP evidence stopped
-  5. Red Team runs TTP again
+  - Time to detect
+  - Time to receive alert
+  - Red Team stops TTP
+  - Show on screen TTP evidence stopped
+  - Red Team runs TTP again
 6. Document results - what worked and what did not
 7. Are there any short term adjustments that can increase visibility?
-  1. Implement adjustment
-  2. Red Team repeats TTP
+  - Implement adjustment
+  - Red Team repeats TTP
 8. Document any feedback and/or Action Items for TTP
 9. Repeat for next TTP
 
@@ -426,9 +362,6 @@ At least one dedicated Exercise Coordinator should be on site to take minutes, n
 
 - [VECTR](https://vectr.io/) is a great, free solution for tracking and reporting Purple Team Exercises
 - Detect Tactics, Techniques &amp; Combat Threats ([DeTT&amp;CT](https://github.com/rabobank-cdc/DeTTECT))
-
-##
-
 
 ## Lessons Learned
 
@@ -448,4 +381,4 @@ The emulation may need to be performed a number of times, over and over, while t
 
 [SCYTHE](https://www.scythe.io/) provides an advanced attack emulation platform for the enterprise and cybersecurity consulting market. The SCYTHE platform enables Red, Blue, and Purple teams to build and emulate real-world adversarial campaigns in a matter of minutes. Customers are in turn enabled to validate the risk posture and exposure of their business and employees and the performance of enterprise security teams and existing security solutions. Based in Arlington, VA, the company is privately held and is funded by Gula Tech Adventures, Paladin Capital, Evolution Equity, and private industry investors. For more information email info@scythe.io, visit [https://scythe.io](https://www.scythe.io/), or follow on Twitter [@scythe\_io](https://twitter.com/scythe_io).
 
-Thank you to the reviewers and contributors of this document: Ben Goerz, Bryson Bort (SCYTHE), Dave Mayer (GRIMM), Erik van Buggenhout (NVISO), Katie Nickels, Mauricio Velazco, and Xena Olsen.
+Thank you to the reviewers and contributors of this document: Ben Goerz, Bryson Bort (SCYTHE), Dave Mayer (GRIMM), Erik van Buggenhout (NVISO), Jorge Orchilles (SCYTHE), Katie Nickels, Mauricio Velazco, and Xena Olsen.
