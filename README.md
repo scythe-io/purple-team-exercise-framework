@@ -1,10 +1,8 @@
 # Purple Team Exercise Framework (PTEF)
 
-Created and Provided to the Community by
+Created and Provided to the Community by Jorge Orchilles - Chief Technology Officer
 
 ![](./img/SCYTHE.png)
-
-Jorge Orchilles - Chief Technology Officer
 
 ## Summary
 
@@ -313,26 +311,26 @@ A Manager of one of the teams, or the CISO, should kick the Purple Team Exercise
     - Delivery Method
     - Privilege gained
 2. Purple Team discussion of expected controls based on TTP
-  - SOC: Any logs or alerts for this TTP
-  - Hunt Team: Any Hunt Cases for this TTP
-  - DFIR: Documented methods to identify if TTP was leveraged
+    - SOC: Any logs or alerts for this TTP
+    - Hunt Team: Any Hunt Cases for this TTP
+    - DFIR: Documented methods to identify if TTP was leveraged
 3. Red Team executes the TTP
-  - Provides attacker IP
-  - Provides target
-  - Provides exact time
-  - Shows the attack on projector
+    - Provides attacker IP
+    - Provides target
+    - Provides exact time
+    - Shows the attack on projector
 4. SOC, Hunt, and DFIR follow process to identify evidence of TTP
-  - Time should be monitored to meet expectation and move exercise along
+    - Time should be monitored to meet expectation and move exercise along
 5. Share screen if TTP was identified, received alert, logs, or forensics
-  - Time to detect
-  - Time to receive alert
-  - Red Team stops TTP
-  - Show on screen TTP evidence stopped
-  - Red Team runs TTP again
+    - Time to detect
+    - Time to receive alert
+    - Red Team stops TTP
+    - Show on screen TTP evidence stopped
+    - Red Team runs TTP again
 6. Document results - what worked and what did not
 7. Are there any short term adjustments that can increase visibility?
-  - Implement adjustment
-  - Red Team repeats TTP
+    - Implement adjustment
+    - Red Team repeats TTP
 8. Document any feedback and/or Action Items for TTP
 9. Repeat for next TTP
 
