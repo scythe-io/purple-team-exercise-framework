@@ -1,8 +1,6 @@
 # Purple Team Exercise Framework (PTEF)
 
-Created and Provided to the Community by Jorge Orchilles - Chief Technology Officer
-
-![](./img/SCYTHE.png)
+Created and provided to the community by the team at SCYTHE. Please consider contributing by submitting pull requests.
 
 ## Summary
 
@@ -43,7 +41,7 @@ Purple Team Exercises are triggered by specific needs that arise to train Red an
 
 Purple Team Exercises follow similar methodologies as zero-knowledge Adversary Emulations. Purple Team Exercises are Cyber Threat Intelligence led, emulating Tactics, Techniques, and Procedures (TTPs) leveraged by known malicious actors actively targeting the organization to identify and remediate gaps in the organization&#39;s security posture. The following methodology is a good starting point for the development of a Purple Team Program and useful for **Purple Team Exercises** and **Continuous Purple Teaming Operations.**
 
-![](./img/PTEF.png)
+![](./imgages/PTEF.png)
 
 Other Methodologies and Frameworks:
 
@@ -103,7 +101,7 @@ Digital Forensics and Incident Response (DFIR) analysts should participate in th
 
 The following methodology for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by a Katie Nickels and Cody Thomas presentation during the SANS Threat Hunting &amp; Incident Response Summit on Sept. 6, 2018, titled: &quot;[ATT&amp;CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&amp;CK](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1536260992.pdf)&quot;. MITRE has free training &quot;[Using ATT&amp;CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/)&quot;. The graphics were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/):
 
-![](./img/CTI.png)
+![](./imgages/CTI.png)
 
 ## Understand the Target Organization
 
@@ -121,7 +119,7 @@ Consider who&#39;s targeting the target organization. For Purple Team Exercises,
 
 Cyber Threat Intelligence may be obtained through open source intelligence, a vendor, or created internally (internal Cyber Threat Intelligence may already be created). It is important to use multiple sources and consider the industry sources such as Information Sharing and Analysis Centers (ISACs). There are many types of Cyber Threat Intelligence as shown in [David Bianco&#39;s Pyramid of Pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html):
 
-![](./img/pyramidofpain.png)
+![](./imgages/pyramidofpain.png)
 
 [David Bianco&#39;s Pyramid of Pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
 
