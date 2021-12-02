@@ -1,6 +1,9 @@
 # Purple Team Exercise Framework (PTEF)
 
-Created and provided to the community by the team at SCYTHE. Please consider contributing by submitting pull requests.
+![](./imgages/PTEF.png)
+
+Created and provided to the community by the team at SCYTHE. 
+Please consider contributing by submitting pull requests.
 
 ## Summary
 
