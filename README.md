@@ -1,6 +1,6 @@
 # Purple Team Exercise Framework (PTEF)
 
-![](./imgages/PTEF.png)
+![](./images/PTEF.png)
 
 Created and provided to the community by the team at SCYTHE.
 Please consider contributing by submitting pull requests.

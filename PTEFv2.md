@@ -1,6 +1,6 @@
 # Purple Team Exercise Framework
 
-![](./imgages/PTEF.png)
+![](./images/PTEF.png)
 
 Created and provided to the community by the team at SCYTHE.
 Please consider contributing by submitting pull requests. 
@@ -34,7 +34,7 @@ At a high level, a Purple Team Exercise is executed with the following flow:
 
 
 
-![](./imgages/PurpleTeamExerciseFlow.png)
+![](./images/PurpleTeamExerciseFlow.png)
 
 
 
@@ -43,7 +43,7 @@ At a high level, a Purple Team Exercise is executed with the following flow:
 Purple Teaming can be operationalized with dedicated stakeholders from a variety of information security roles (CTI, Red, and Blue teams) working together as a virtual team. When new TTPs are discovered, they are analyzed, discussed, and emulated to continually build and improve detection and response. This document covers both how to run Purple Team Exercises and how to operationalize purple teaming.
 
 
-![](./imgages/OperationalizedPurpleTeam.png)
+![](./images/OperationalizedPurpleTeam.png)
 
 
 
@@ -53,12 +53,12 @@ Regardless of implementation, a purple team program can be measured and matured 
 
 
 
-![](./imgages/PTMM1.png)
+![](./images/PTMM1.png)
 
 
 
 
-![](./imgages/PTMM2.png)
+![](./images/PTMM2.png)
 
 
 
@@ -86,7 +86,7 @@ Leveraging frameworks and methodologies for information security assessments is 
 
 
 
-![](./imgages/PTEF.png)
+![](./images/PTEF.png)
 
 
 
@@ -282,7 +282,7 @@ The below process for leveraging Cyber Threat Intelligence for Purple Team Exerc
 
 
 
-![](./imgages/CTI.png)
+![](./images/CTI.png)
 
 
 
@@ -310,7 +310,7 @@ Cyber Threat Intelligence may be obtained through open source intelligence, a ve
 
 
 
-![](./imgages/pyramidofpain.jpg)
+![](./images/pyramidofpain.jpg)
 
 
 [David Bianco’s Pyramid of Pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
@@ -747,7 +747,7 @@ Introductions should be made if the team has not worked together in the past. Th
 
 
 
-![](./imgages/PurpleTeamExerciseFlow.png)
+![](./images/PurpleTeamExerciseFlow.png)
 
 
 
@@ -810,7 +810,7 @@ Purple Teaming can be operationalized with dedicated stakeholders from a variety
 
 
 
-![](./imgages/OperationalizedPurpleTeam.png)
+![](./images/OperationalizedPurpleTeam.png)
 
 
 
@@ -821,7 +821,7 @@ Thus far, purple team is mostly used as a verb - referencing the execution of an
 The Purple Team Maturity Model encourages the shift to using purple team as a noun - creating permanent teams who share common goals and leverage their varied expertise outside of periodic exercises. These new blended teams will be measured through two categories: threat understanding and detection understanding. 
 
 
-![](./imgages/PTMM1.png)
+![](./images/PTMM1.png)
 
 
 
@@ -844,7 +844,7 @@ Our final level of maturity is creation - adding novel tools to the capabilities
 
 
 
-![](./imgages/PTMM3.png)
+![](./images/PTMM3.png)
 
 
  
@@ -855,7 +855,7 @@ Our final level of maturity is creation - adding novel tools to the capabilities
 These three levels are meant to be viewed as a team to gauge overall capability, but can also be leveraged to gauge capability with a specific tool or technology. Combining the levels of understanding with the two categories of understanding creates the PMM. 
 
 
-![](./imgages/PTMM2.png)
+![](./images/PTMM2.png)
 
 
 We used color coding to emphasize the required balance between threat and detection understanding to achieve “purple,” but there’s no wrong way to get to the top right corner of the box (what we would consider an advanced purple team). Maybe your organization has a highly skilled team who understands how to create new detections based on the latest cyber threat intelligence; they probably think of themselves as a blue team and sit in the top left corner of our box. This team needs to improve their threat understanding to build their capabilities into purple territory - enabling testing of their detections and guiding development of new ones. The first step for this team might be deploying a tool like the SCYTHE platform or Red Canary’s [Atomic Red Team Project](https://github.com/redcanaryco/atomic-red-team) with one of the public emulation plans available in SCYTHE’s public repository of [community threats on GitHub](https://github.com/scythe-io/community-threats) or MITRE Engenuity’s [Center for Threat Informed Defense (CTID) ](https://github.com/center-for-threat-informed-defense/adversary_emulation_library)plans. As they advance in their threat understanding journey, they might hire someone to refine their threat model or write new adversary techniques to keep their detections on the cutting edge. While there are many paths to purple, if you are looking for guidance on how to invest your limited resources, we would recommend prioritizing balance. Ask yourself where your team falls in the square and what you need to move closer to the purple diagonal. The ultimate goal is to create a team with advanced understanding of both threats and detections, allowing them to better defend the organization.
