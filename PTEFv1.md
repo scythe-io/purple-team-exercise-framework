@@ -102,7 +102,7 @@ Digital Forensics and Incident Response (DFIR) analysts should participate in th
 
 ## Cyber Threat Intelligence
 
-The following methodology for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by a Katie Nickels and Cody Thomas presentation during the SANS Threat Hunting &amp; Incident Response Summit on Sept. 6, 2018, titled: &quot;[ATT&amp;CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&amp;CK](https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1536260992.pdf)&quot;. MITRE has free training &quot;[Using ATT&amp;CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/)&quot;. The graphics were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/):
+The following methodology for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by a Katie Nickels and Cody Thomas presentation during the SANS Threat Hunting &amp; Incident Response Summit on Sept. 6, 2018, titled: &quot;[ATT&amp;CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&amp;CK](https://www.slideshare.net/KatieNickels/threatbased-adversary-emulation-with-mitre-attck)&quot;. MITRE has free training &quot;[Using ATT&amp;CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/)&quot;. The graphics were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/):
 
 ![](./images/CTI.png)
 
