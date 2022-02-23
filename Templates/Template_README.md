@@ -1,4 +1,4 @@
-# Threat Actor: 
+# Threat Actor 
 Add the name of the threat actor in heading above. (May include other names in here)
 
 ## Executive Summary
