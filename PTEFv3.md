@@ -266,7 +266,7 @@ As an organization builds a Purple Team Program, the preparation time will dimin
 
 ## Planning Meetings
 
-For a successful completion of the Preparation Phase, planning meetings may be required. The amount of meetings and preparation will depend on the Purple Team Program maturity and if external stakeholders are involved. For example, consultants offering Purple Team Exercises will take more time to prepare than for an internal team that has successfully completed a number of exercises.
+For a successful completion of the Planning Phase, planning meetings may be required. The amount of meetings and preparation will depend on the Purple Team Program maturity and if external stakeholders are involved. For example, consultants offering Purple Team Exercises will take more time to prepare than for an internal team that has successfully completed a number of exercises.
 
 The following sections include various planning meeting examples, action items, and agendas. More templates are available in our [GitHub](https://github.com/scythe-io/purple-team-exercise-framework).
 
