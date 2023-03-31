@@ -1,6 +1,6 @@
-# Purple Team Exercise Framework
+# Purple Team Exercise Framework (PTEF)
 
-This document defines how to build and mature a Purple Team program from running ad-hoc Purple Team Exercises, to operationalizing Purple Teaming, to building a dedicated Purple Team. Purple Team Exercises are an efficient method to test, measure, and improve your organization's resilience to a real cyber attack. Purple Teaming focuses on fostering collaboration with your entire organization including people, process, and technology (security stack).
+This document defines how to build and mature a Purple Team program from ad-hoc Purple Team Exercises, to Operationalized Purple Teaming, to building a Dedicated Purple Team. Purple Team Exercises are an efficient method to test, measure, and improve your organization's resilience to a real cyber attack. Purple Teaming focuses on fostering collaboration with your entire organization including people, process, and technology (security stack).
 
 <p align="center"> <img src="./images/PurpleTeamProgram.png" /> </p>
 
@@ -18,16 +18,34 @@ This document defines how to build and mature a Purple Team program from running
 4. [Roles and Responsibilities](#roles-and-responsibilities)
     1. [Sponsors](#sponsors)
     2. [Exercise Coordinator](#exercise-coordinator)
+    3. [Cyber Threat Intelligence Responsibilities](#cyber-threat-intelligence-responsibilities)
+    4. [Red Team Responsibilities](#red-team-responsibilities)
+    5. [Blue Team Responsibilities](#blue-team-responsibilities)
 5. [Planning](#planning)
+    1. [Planning Meetings](#planning-meetings)
+    2. [Technical Preparation](#technical-preparation)
 6. [Cyber Threat Intelligence](#cyber-threat-intelligence)
+    1. [Understand the Target Organization](#understand-the-target-organization)
+    2. [Identify the Adversary to Emulate](#identify-the-adversary-to-emulate)
+    3. [Gather Cyber Threat Intelligence](#gather-cyber-threat-intelligence)
+    4. [Extract TTPs at the Procedure Level](#extract-ttps-at-the-procedure-level)
+    5. [Analyze and Organize](#analyze-and-organize)
+    6. [Table Top TTPs](#table-top-ttps)
+    7. [Create an Adversary Emulation Plan](#create-an-adversary-emulation-plan)
 7. [Purple Team Exercise Execution](#purple-team-exercise-execution)
+    1. [Kick Off](#kick-off)
+    2. [Exercise Flow](#exercise-flow)
+    3. [Tracking Exercise](#tracking-exercise)
 8. [Operationalized Purple Team](#operationalized-purple-team-1)
 9. [Dedicated Purple Team](#dedicated-purple-team-1)
-10. [Purple Team Maturity Model](#purple-team-maturity-model)
-11. [Templates](#templates)
-12. [FAQ](#faq)
-13. [Previous Versions](#previous-versions)
-14. [Contributors](#contributors)
+10. [Lessons Learned](#lessons-learned)
+    1. [Tracking Action items](#tracking-action-items)
+    2. [Retesting](#retesting)
+11. [Purple Team Maturity Model](#purple-team-maturity-model)
+12. [Templates](#templates)
+13. [FAQ](#faq)
+14. [Previous Versions](#previous-versions)
+15. [Contributors](#contributors)
 
 # Executive Summary
 
@@ -106,7 +124,7 @@ Organizations operating in highly regulated industries, such as financial instit
 
 # Roles and Responsibilities
 
-Successful Purple Team Exercises require the active planning and participation of a wide range of stakeholders throughout the phases of the Purple Team Exercise: (1) Cyber Threat Intelligence, (2) Preparation, (3) Exercise Execution and (4) Lessons Learned. The below table has an example of Roles and Responsibilities for a Purple Team Exercise. 
+Successful Purple Team Exercises require the active planning and participation of a wide range of stakeholders throughout the phases of the Purple Team Exercise: (1) Planning, (2) Cyber Threat Intelligence, (3) Exercise Execution and (4) Lessons Learned. The below table has an example of Roles and Responsibilities for a Purple Team Exercise. 
 
 Please note that not all organizations or exercises require all these stakeholders. Purple Team Exercises can leverage internal and/or external teams. For example, an organization may not have an internal Cyber Threat Intelligence team or they may outsource the SOC to a managed security provider. These organizations can still leverage the efficiencies and benefits of a Purple Team Program.
 
@@ -120,13 +138,11 @@ Please note that not all organizations or exercises require all these stakeholde
    </td>
   </tr>
   <tr>
-   <td>Project Manager
+   <td>Engagement Manager
    </td>
    <td>Exercise Coordinator
    </td>
-   <td>Lead point of contact throughout the entire Purple Team Exercise. Responsible for ensuring Cyber Threat Intelligence is provided. Ensures all Preparation steps are taken prior to Exercise Execution. During 
-<p>
-Exercise Execution, record minutes, notes, action items, and feedback. Send daily emails with those notes as well as guidance for what's planned for the next day. Compile and deliver Lessons Learned.
+   <td>Lead point of contact throughout the entire Purple Team Exercise. Responsible for ensuring Cyber Threat Intelligence is provided. Ensures all Planning steps are taken prior to Exercise Execution. During Exercise Execution, record minutes, notes, action items, and feedback. Compile and deliver Lessons Learned.
    </td>
   </tr>
   <tr>
@@ -140,7 +156,7 @@ Exercise Execution, record minutes, notes, action items, and feedback. Send dail
   <tr>
    <td>Cyber Threat Intelligence
    </td>
-   <td>Sponsor
+   <td>Planning, Spectator
    </td>
    <td>Cyber Threat Intelligence
    </td>
@@ -148,78 +164,76 @@ Exercise Execution, record minutes, notes, action items, and feedback. Send dail
   <tr>
    <td>Red Team Manager
    </td>
-   <td>Sponsor
+   <td>Sponsor, Spectator
    </td>
-   <td>Preparation: Define Goals, Select Attendees
+   <td>Planning: Define Goals, Select Attendees
    </td>
   </tr>
   <tr>
    <td>Blue Team Manager
    </td>
-   <td>Sponsor
+   <td>Sponsor, Spectator
    </td>
-   <td>Preparation: Define Goals, Select Attendees
+   <td>Planning: Define Goals, Select Attendees
    </td>
   </tr>
   <tr>
    <td>DFIR Manager
    </td>
-   <td>Sponsor
+   <td>Sponsor, Spectator
    </td>
-   <td>Preparation: Define Goals, Select Attendees
+   <td>Planning: Define Goals, Select Attendees
    </td>
   </tr>
   <tr>
    <td>Red Team
    </td>
-   <td>Attendee
+   <td>Participant
    </td>
-   <td>Preparation, Exercise Execution
+   <td>Planning, Exercise Execution
    </td>
   </tr>
   <tr>
    <td>SOC (Blue Team)
    </td>
-   <td>Attendee
+   <td>Participant
    </td>
-   <td>Preparation, Exercise Execution
+   <td>Planning, Exercise Execution
    </td>
   </tr>
   <tr>
    <td>Hunt Team (Blue Team)
    </td>
-   <td>Attendee
+   <td>Participant
    </td>
-   <td>Preparation, Exercise Execution
+   <td>Planning, Exercise Execution
    </td>
   </tr>
   <tr>
-   <td>Digital Forensics & 
-<p>
-Incident Response (DFIR)
+   <td>Digital Forensics & Incident Response (DFIR)
    </td>
-   <td>Attendee
+   <td>Participant
    </td>
-   <td>Preparation, Exercise Execution
+   <td>Planning, Exercise Execution
    </td>
   </tr>
 </table>
 
 ## Sponsors
 
-Management from participating functions must approve and support the Purple Team Exercise, including the goals, budget, and scope prior to any additional work in the Preparation or other phases of the exercise. Managers are responsible for choosing exercise attendees from their teams and removing daily obligations from those individuals during the exercise so they can be focused on the goals and objectives.
+Management from participating functions must approve and support the Purple Team Exercise, including the goals, budget, and scope prior to any additional work in the Planning or other phases of the exercise. Managers are responsible for choosing exercise attendees from their teams and removing daily obligations from those individuals during the exercise so they can be focused on the goals and objectives.
 
 ## Exercise Coordinator
 
-The Exercise Coordinator(s) is the lead point of contact throughout the entire Purple Team Exercise. They are responsible for ensuring Cyber Threat Intelligence is provided and that all Preparation steps are taken prior to Exercise Execution. During Exercise Execution, they should record minutes, notes, action items, and feedback. They are also responsible for compiling and delivering the Lessons Learned document.
+The Exercise Coordinator(s) is the lead point of contact throughout the entire Purple Team Exercise. They are responsible for ensuring Cyber Threat Intelligence is provided and that all Planning steps are taken prior to Exercise Execution. During Exercise Execution, they should record minutes, notes, action items, and feedback. They are also responsible for compiling and delivering the Lessons Learned document.
 
 ## Cyber Threat Intelligence Responsibilities
 
-Cyber Threat Intelligence, whether internal or a third party, is required to provide actionable cyber threat intelligence early in the exercise preparation phase. This team will be responsible for identifying adversaries with the opportunity, intent, and capability to attack the organization as well as consume and extract the adversary tactics, techniques, and procedures (TTPs).  Cyber Threat Intelligence analysts should participate in the Purple Team Exercise to continue learning about the organization.
+Cyber Threat Intelligence, whether internal or a third party, is required to provide actionable cyber threat intelligence early in the exercise Planning phase. This team will be responsible for identifying adversaries with the opportunity, intent, and capability to attack the organization as well as consume and extract the adversary tactics, techniques, and procedures (TTPs). Cyber Threat Intelligence analysts should participate as spectators in the Purple Team Exercise to continue learning about the organization.
 
 ## Red Team Responsibilities
 
-The Red Team is required to complete a number of responsibilities during the preparation phase and be active during the Exercise Execution. Preparation will include understanding the TTPs and ensuring reliable and consistent emulation during the exercise. Red Teams do not have to leverage the same tools and tradecraft as in stealth, red team operations. Operational managers should remove other tasks from Red Team members for successful execution of the Purple Team Exercise.
+The Red Team is required to complete a number of responsibilities during the planning phase and be active during the Exercise Execution. Preparation will include understanding the TTPs and ensuring reliable and consistent emulation during the exercise. Red Teams do not have to leverage the same tools and tradecraft as in stealth, red team operations. Operational managers should remove other tasks from Red Team members for successful execution of the Purple Team Exercise.
 
 ## Blue Team Responsibilities
 
@@ -227,48 +241,25 @@ The Blue Team is a catch-all term for the defenders. This may include but is not
 
 ### Security Operations Center Responsibilities
 
-The Security Operations Center (SOC) Manager should plan to attend and have SOC analysts participate in the exercise. Very little time is expected from the SOC in the Preparation phase but attendance should be required during the Exercise. SOC management should plan accordingly, removing daily duties from the exercise attendees. Other analysts should be scheduled to cover operations in the exercise attendee's absence.
-
-Organizations that do not have a Security Operations Center and leverage Managed Security Service Providers (MSSP) can also perform Purple Team Exercises. It will require planning and approval from the MSSP to ensure they can participate in the exercise based on the goals and objectives.
+The Security Operations Center (SOC) Manager should plan to attend and have SOC analysts participate in the exercise. Very little time is expected from the SOC in the Planning phase but attendance should be required during the Exercise Execution. SOC management should plan accordingly, removing daily duties from the exercise attendees. Other analysts should be scheduled to cover operations in the participants's absence. Organizations that do not have a Security Operations Center and leverage Managed Security Service Providers (MSSP) can also perform Purple Team Exercises. It will require planning and approval from the MSSP to ensure they can participate in the exercise based on the goals and objectives.
 
 ### Hunt Team Responsibilities
 
-If the organization has a Hunt Team, they should participate as well. Very little time is expected from the Hunt Team in the Preparation phase but active participation during the Exercise Execution is expected. The Hunt Team Manager should share their most up-to-date playbooks during the Preparation Phase to ensure ideal TTPs are chosen for the exercise. Examples of playbooks are available from [ThreatHunter-Playbook](https://github.com/hunters-forge/ThreatHunter-Playbook).
+If the organization has a Hunt Team, they should participate as well. Very little time is expected from the Hunt Team in the Planning phase but active participation during the Exercise Execution is expected. The Hunt Team Manager should share their most up-to-date playbooks during the Planning Phase to ensure ideal TTPs are chosen for the exercise. Examples of playbooks are available from [ThreatHunter-Playbook](https://github.com/hunters-forge/ThreatHunter-Playbook).
 
 ### Digital Forensics & Incident Response Responsibilities
 
-Digital Forensics and Incident Response (DFIR)  analysts should participate in the Purple Team Exercise as well. Very little time is expected from (DFIR) teams in the Preparation phase but active participation during the Exercise Execution is expected. DFIR Managers should remove all incident cases from exercise attendees so daily case work can continue and attendance will not affect the DFIR analyst's performance.
+Digital Forensics and Incident Response (DFIR) analysts should participate in the Purple Team Exercise as well. Very little time is expected from DFIR teams in the Planning phase but active participation during the Exercise Execution is expected. DFIR Managers should remove all incident cases from exercise attendees so daily case work can continue and attendance will not affect the DFIR analyst's performance.
 
 # Planning
 
-Purple Team Exercises can run for a few hours, days, or weeks of hands-on-keyboard collaboration between information security stakeholders. Preparation time is based on the goals and objectives that initiated the exercise, guidance or constraints, and the emulated adversary's tactics, techniques and procedures (TTPs).
+Purple Team Exercises can run for a few hours, days, or weeks of hands-on-keyboard collaboration between information security stakeholders. Planning time is based on the goals and objectives that initiated the exercise, guidance or constraints, and the emulated adversary's tactics, techniques and procedures (TTPs).
 
-As an organization builds a Purple Team Program, the preparation time will diminish and efficiencies will lead to even more valuable exercises.
-
-<table>
-  <tr>
-   <td><strong>Preparation</strong>
-   </td>
-   <td><strong>Exercise</strong>
-   </td>
-   <td><strong>Lessons Learned</strong>
-   </td>
-  </tr>
-  <tr>
-   <td>Hours
-   </td>
-   <td>Hours/Days
-   </td>
-   <td>Days/Weeks
-   </td>
-  </tr>
-</table>
+As an organization builds a Purple Team Program, the planning time will diminish and efficiencies will lead to even more valuable exercises.
 
 ## Planning Meetings
 
 For a successful completion of the Planning Phase, planning meetings may be required. The amount of meetings and preparation will depend on the Purple Team Program maturity and if external stakeholders are involved. For example, consultants offering Purple Team Exercises will take more time to prepare than for an internal team that has successfully completed a number of exercises.
-
-The following sections include various planning meeting examples, action items, and agendas. More templates are available in our [GitHub](https://github.com/scythe-io/purple-team-exercise-framework).
 
 ### Planning Meeting - Pitch
 
@@ -276,33 +267,33 @@ The first planning meeting can be seen as a pitch of the Purple Team Exercise an
 
 ### Planning Meeting 1
 
-Once the sponsors and stakeholders agree to a Purple Team Exercise, the following planning meeting should cover all the requirements from the Cyber Threat Intelligence and Preparation Phase. Action items should be assigned to the respective stakeholders. The Exercise Coordinator is responsible for tracking and ensuring all the actions are completed before the final planning meeting.
+Once the sponsors and stakeholders agree to a Purple Team Exercise, the following planning meeting should cover all the requirements from the Planning and Cyber Threat Intelligence Phases. A sample agenda is available in the templates folder. Action items should be assigned to the respective stakeholders. The Exercise Coordinator is responsible for tracking and ensuring all the actions are completed before the final planning meeting.
 
 ### Planning Meeting 2
 
-The final planning meeting should be held to ensure all the Cyber Threat Intelligence and Preparation Phase items have been completed and everything is ready for the exercise. The Exercise Coordinator should lead the meeting and go over each action item assigned in the previous planning meetings to validate that all the Preparation Phase steps were successfully completed. This may include but is not limited to: 
+The final planning meeting should be held to ensure all the Planning and Cyber Threat Intelligence phase items have been completed and everything is ready for the exercise. The Exercise Coordinator should lead the meeting and go over each action item assigned in the previous planning meetings to validate that all the Planning Phase steps were successfully completed. This may include but is not limited to: 
 
 * Exercise Coordinator(s)
     * Ensuring physical location has met all the requirements including but not limited to power, connectivity to all systems (attack and defend infrastructure), A/C, etc.
     * Determine if table top discussions will occur prior to the exercise or the day of the exercise
     * Agenda has been distributed to all stakeholders
 * Red Team Preparation
-* Setup at least 2 systems to show attack activity
-* Ensure Attack Infrastructure is fully functional
-* Ensure Target Systems are accessible 
-* Document all commands required to emulate TTPs in a playbook or adversary emulation plan
-* Test TTPs before exercise on different hosts than the exercise hosts but that are configured exactly alike similarly
+    * Setup at least 2 systems to show attack activity
+    * Ensure Attack Infrastructure is fully functional
+    * Ensure Target Systems are accessible 
+    * Document all commands required to emulate TTPs in a playbook or adversary emulation plan
+    * Test TTPs before exercise on different hosts than the exercise hosts but that are configured exactly alike similarly
 * Blue Team Preparation
-* Validate security tools are reporting to production security tools from the target systems
-* Ensure attack infrastructure is accessible through proxy/outbound controls
-* Ensure attack infrastructure is being decrypted (TLS decryption/interception)
-* Verify allowlists and notify Red Team
-* Work with Red Team as payloads and C2 are tested prior to exercise on non-exercise systems
-* Create an exercise case as per the DFIR process
-    * This will allow tagging artifacts and following normal processes without flagging any suspicious activity (e.g. pulling memory from a system that does not have a formal case)
-    * Ensure the target systems are not segmented or wiped as they will be used throughout the exercise.
-* Ensure the correct forensic tools are deployed on the target systems
-*  Install Live Forensic Tools for efficiency during Purple Team Exercise.
+    * Validate security tools are reporting to production security tools from the target systems
+    * Ensure attack infrastructure is accessible through proxy/outbound controls
+    * Ensure attack infrastructure is being decrypted (TLS decryption/interception)
+    * Verify allowlists and notify Red Team
+    * Work with Red Team as payloads and C2 are tested prior to exercise on non-exercise systems
+    * Create an exercise case as per the DFIR process
+        * This will allow tagging artifacts and following normal processes without flagging any suspicious activity (e.g. pulling memory from a system that does not have a formal case)
+        * Ensure the target systems are not segmented or wiped as they will be used throughout the exercise.
+    *  Ensure the correct forensic tools are deployed on the target systems
+    *  Install Live Forensic Tools for efficiency during Purple Team Exercise.
 
 ### Logistics
 
@@ -313,8 +304,6 @@ If travel is not possible, Purple Team Exercises can be performed remotely throu
 ### Agenda
 
 Define an agenda for the exercise and share it with the stakeholders beforehand. Ensure to include breaks and provide snacks if physically in the same location. Purple Teaming is hard work and stakeholders will appreciate some coffee, tea, and/or snacks.
-
-Templates of Purple Team Exercise agendas may be found on our [GitHub](https://github.com/scythe-io/purple-team-exercise-framework).
 
 ### Metrics
 
@@ -346,12 +335,12 @@ The Exercise Coordinator(s) should work with stakeholders to identify and provis
 
 Based on the approved goals and TTPs, the target systems may be requested following normal processes to ensure consistency with production/live systems. If new systems are requested, they should be built with the same image used for other, similar processes. 
 
-* **Endpoint Operation Systems**
+* Endpoint Operation Systems
     * Standard endpoints - recommend 2 of each (Windows 10, Linux, macOS)
     * Physical systems
     * Virtual Desktop Infrastructure
     * Terminal Services/Citrix
-* **Server Operating Systems in Environment**
+* Server Operating Systems in Environment
     * Windows Servers
     * *nix Servers
     * Include Virtual and Cloud Servers
@@ -408,9 +397,9 @@ Leveraging external vs. internal infrastructure will depend on the organization 
 
 # Cyber Threat Intelligence
 
-Cyber Threat intelligence(CTI) is evidence-based knowledge, context, indicators, and behaviors about a threat to an organization. CTI is the first reason that Purple Team Programs are of high value. While a Red Team can try thousands of methods to reach an objective, a Purple Team will focus on the methods, tradecraft, and TTPs that are most likely to impact the organization. 
+Cyber Threat intelligence (CTI) is evidence-based knowledge, context, indicators, and behaviors about a threat to an organization. CTI is one of the many reasons that Purple Team Programs are of high value. While a Red Team can try thousands of methods to reach an objective, a Purple Team will focus on the methods, tradecraft, and TTPs that are most likely to impact the organization. 
 
-The below process for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by Katie Nickels and Cody Thomas presentation during the 2018 SANS Threat Hunting & Incident Response Summit titled: "[ATT&CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&CK](https://www.slideshare.net/KatieNickels/threatbased-adversary-emulation-with-mitre-attck)". MITRE has a free training that covers a similar process [Using ATT&CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/). The below graphics and icons were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/) and SANS Purple Team SEC599 and SEC 699 course author:
+The below process for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by Katie Nickels and Cody Thomas presentation during the 2018 SANS Threat Hunting & Incident Response Summit titled: "[ATT&CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&CK](https://www.slideshare.net/KatieNickels/threatbased-adversary-emulation-with-mitre-attck)". MITRE has a free training that covers a similar process [Using ATT&CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/). The below graphics and icons were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/) and SANS Purple Team SEC599 and SEC699 course author:
 
 ![](./images/CTI.png)
 
@@ -425,9 +414,9 @@ While the scope of this document does not include Threat Modeling, it is importa
 Consider who's targeting the target organization. For Purple Team Exercises, one will want to consider the adversary's capability, intent, and opportunity. If the organization is new to adversary emulation, start with lower sophistication actors and work into more sophisticated ones as the Purple Team Program matures. The below definitions are taken from the [SANS Digital Forensics Blog](https://digital-forensics.sans.org/blog/2009/07/23/security-intelligence-introduction-pt-2/):
 
 
-* **Intent: _Intent stems in a way from impact. It is immutable and driven by the industry you are in just as Impact is. Typically, at a high level, the intent of adversaries to whom security intelligence techniques are applied is data theft. Of course, for each intrusion, each compromise, or each actor, the intent will most likely be slightly different. Is the goal of the adversary to compromise operational details of a campaign, or technical details of a widget? There is nothing that can be done to influence intent._**
-* **Opportunity: _Opportunity is about timing and knowledge of the target space. In some cases, it pairs with vulnerability, but not always. It is one thing to be using a product with a 0-day vulnerability in it, but quite another when your adversary knows this. In other respects, however, opportunity is less related. For instance, wouldn't a company's benefits open enrollment period be a great time for a targeted attack on users using socially-engineered, topically-relevant email as a delivery vector?_**
-* **Capability:** _Put simply, capability is the ability of adversaries to successfully achieve their intended goal and leverage opportunity. It is influenced by things such as the skills of the adversaries and the resources (financial, human, and technical) available to them. To extend the 0-day example, a target may be vulnerable, the adversary may intend to steal data by exploiting this 0-day, but if he or she cannot write or obtain the exploit, then the risk is lower._
+* Intent: Intent stems in a way from impact. It is immutable and driven by the industry you are in just as Impact is. Typically, at a high level, the intent of adversaries to whom security intelligence techniques are applied is data theft. Of course, for each intrusion, each compromise, or each actor, the intent will most likely be slightly different. Is the goal of the adversary to compromise operational details of a campaign, or technical details of a widget? There is nothing that can be done to influence intent.
+* Opportunity: Opportunity is about timing and knowledge of the target space. In some cases, it pairs with vulnerability, but not always. It is one thing to be using a product with a 0-day vulnerability in it, but quite another when your adversary knows this. In other respects, however, opportunity is less related. For instance, wouldn't a company's benefits open enrollment period be a great time for a targeted attack on users using socially-engineered, topically-relevant email as a delivery vector?
+* Capability: Put simply, capability is the ability of adversaries to successfully achieve their intended goal and leverage opportunity. It is influenced by things such as the skills of the adversaries and the resources (financial, human, and technical) available to them. To extend the 0-day example, a target may be vulnerable, the adversary may intend to steal data by exploiting this 0-day, but if he or she cannot write or obtain the exploit, then the risk is lower.
 
 ## Gather Cyber Threat Intelligence
 
@@ -576,12 +565,11 @@ Creating an Adversary Profile is a great way of establishing a high-level plan f
   </tr>
 </table>
 
+MITRE has developed the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/enterprise/), a web application that represents ATT&CK techniques in a dynamic fashion. It can be used to select specific techniques based on a threat group or software, after which modifications and annotations can be made. It may have TTPs assigned to an adversary that was not provided in the Cyber Threat Intelligence. Note that the techniques for Groups/Software/Campaigns in Navigator are fully referenced to open sources on MITRE ATT&CK [Groups ](https://attack.mitre.org/groups/) [Software](https://attack.mitre.org/software/) and [Campaign pages](https://attack.mitre.org/campaigns/). Navigator is open-source and can be self-hosted.
 
-MITRE has developed the [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/enterprise/), a web application that represents ATT&CK techniques in a dynamic fashion. It can be used to select specific techniques based on a threat group or software, after which modifications and annotations can be made. It may have TTPs assigned to an adversary that was not provided in the Cyber Threat Intelligence. Note that the techniques for Groups/Software in Navigator are fully referenced to open sources on MITRE ATT&CK [Groups ](https://attack.mitre.org/groups/)and [Software](https://attack.mitre.org/software/) pages. Navigator is open-source and can be self-hosted.
+## Table Top TTPs
 
-## Table Top TTPs with Stakeholders
-
-Stakeholders of the Purple Team Exercise should review the TTPs provided by Cyber Threat Intelligence and perform a table-top exercise to pick the TTPs that should be emulated during the Purple Team Exercise. **The earlier the TTPs are chosen, the earlier the Preparation phase can begin**. The TTPs chosen should be actively used by malicious actors targeting the organization and built into attack chains. New TTPs may also be used and are ideal for Operationalized Purple Teaming.
+Stakeholders of the Purple Team Exercise should review the TTPs provided by Cyber Threat Intelligence and perform a table-top exercise to pick the TTPs that should be emulated during the Purple Team Exercise. The earlier the TTPs are chosen, the earlier the Planning phase can progress. The TTPs chosen should be actively used by malicious actors targeting the organization and built into attack chains. New TTPs may also be used and are ideal for Operationalized Purple Teaming.
 
 The table top exercise should cover what controls are expected for those TTPs and which teams should have visibility of the TTP activity. TTPs chosen for the exercise should be classified as follows:
 
@@ -624,7 +612,7 @@ A matrix should be created showing expected outcomes and team participation:
 
 ## Create an Adversary Emulation Plan
 
-The Red Team will be required to know the TTPs in the Preparation Phase to create the adversary emulation plan and complete the Preparation Phase prior to Exercise Execution. Exercise Coordinators should discuss and decide if to share the TTPs with participants before the Exercise Execution Phase.
+The Red Team will be required to know the TTPs in the Planning Phase to create the adversary emulation plan and complete the Planning Phase prior to Exercise Execution. Exercise Coordinators should discuss and decide if to share the TTPs with participants before the Exercise Execution Phase.
 
 Examples of Adversary Emulation Plans are available from the following resources:
 
@@ -648,8 +636,7 @@ Introductions should be made if the team has not worked together in the past. Th
 
 ## Exercise Flow
 
-![](./images/PurpleTeamExerciseFlow.png)
-
+<p align="center"> <img src="./images/PurpleTeamExerciseFlow.png"/> </p>
 
 1. Exercise Coordinator or Cyber Threat Intelligence analysts presents the adversary, TTPs, and technical details. This can be a series of slides that introduces the adversary, previous targets, known behaviors, tools, attack vectors leveraged, and the tactics, techniques, and procedures.
 2. The Exercise Coordinator should then lead a table-top discussion of each TTP presented. Various stakeholders should provide the expected control or result of the TTP. For example:
@@ -663,7 +650,7 @@ Introductions should be made if the team has not worked together in the past. Th
     * Shows the attack to attendees
 4. Blue Team will follow standard process to identify evidence of TTP. Time should be monitored to meet expectation and move exercise along. Stakeholders should share screen if TTP was identified due to alerts, threat hunting for logs, or any other evidence. Metrics should be taken and documented.
 5. Detection Engineering process can be initiated based on access of stakeholders. Are there any short term adjustments that can increase visibility? If so, implement adjustments and have the Red Team repeat execution of the TTP. Document any output, action items, or notes for the TTP.
-6. Repeat for next TTP.
+6. Repeat for next TTP(s).
 
 ## Tracking Exercise
 
@@ -674,8 +661,6 @@ At least one dedicated Exercise Coordinator should be on site to take minutes, n
 * [VECTR](https://vectr.io) is a free solution for tracking Red Team use cases and Blue Team results. 
 
 The Exercise Coordinator may assign more note taking and tracking to members of the different participant teams. 
-
-
 
 # Operationalized Purple Team
 
@@ -794,9 +779,10 @@ Thank you to all those that reviewed and provided feedback for the first version
 
 ## PTEFv2
 We appreciate the feedback, pull requests, and community contributions of everyone that has spent the time to provide us lessons learned from their own exercises. The below team authored version 2 of the Purple Team Exercise Framework:
+* Christopher Peacock
 * Jorge Orchilles
 * Tim Schulz
 * Shawn Edwards
 
 ## PTEFv3
-PTEFv3 was released during RSA Conference 2023 and authored by Jorge Orchilles. It expands on PTEFv2 by defining Operationalized Purple Teaming and Dedicated Purple Teams.
+PTEFv3 was released during RSA Conference 2023 and authored by Jorge Orchilles.
