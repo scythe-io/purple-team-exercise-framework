@@ -37,6 +37,11 @@ This document defines how to build and mature a Purple Team program from ad-hoc 
     2. [Exercise Flow](#exercise-flow)
     3. [Tracking Exercise](#tracking-exercise)
 8. [Operationalized Purple Team](#operationalized-purple-team-1)
+    1. [New Adversary Behavior or TTP](#new-adversary-behavior-or-ttp)
+    2. [Analyze and Organize the TTPs](#analyze-and-organize-the-ttps) 
+    3. [Emulate TTPs](#emulate-ttps)
+    4. [Blue Team Results](#blue-team-results)
+    5. [Detection Engineering](#detection-engineering)
 9. [Dedicated Purple Team](#dedicated-purple-team-1)
 10. [Lessons Learned](#lessons-learned)
     1. [Tracking Action items](#tracking-action-items)
@@ -401,7 +406,7 @@ Cyber Threat intelligence (CTI) is evidence-based knowledge, context, indicators
 
 The below process for leveraging Cyber Threat Intelligence for Purple Team Exercises was inspired by Katie Nickels and Cody Thomas presentation during the 2018 SANS Threat Hunting & Incident Response Summit titled: "[ATT&CKing the Status Quo: Threat-Based Adversary Emulation with MITRE ATT&CK](https://www.slideshare.net/KatieNickels/threatbased-adversary-emulation-with-mitre-attck)". MITRE has a free training that covers a similar process [Using ATT&CK for Cyber Threat Intelligence Training](https://attack.mitre.org/resources/training/cti/). The below graphics and icons were created by Erik van Buggenhout of [NVISO](https://www.nviso.eu/) and SANS Purple Team SEC599 and SEC699 course author:
 
-![](./images/CTI.png)
+<p align="center"> <img src="./images/CTI.png"/> </p>
 
 ## Understand the Target Organization
 
@@ -422,7 +427,8 @@ Consider who's targeting the target organization. For Purple Team Exercises, one
 
 Cyber Threat Intelligence may be obtained through open source intelligence, a vendor, or created internally. It is important to use multiple sources and consider the industry sources such as Information Sharing and Analysis Centers (ISACs). There are many types of Cyber Threat Intelligence as shown in [David Bianco's Pyramid of Pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html):
 
-![](./images/pyramidofpain.jpg)
+<p align="center"> <img src="./images/pyramidofpain.jpg"/> </p>
+
 
 [David Bianco's Pyramid of Pain](https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
 
@@ -435,6 +441,10 @@ The type of Cyber Threat Intelligence needed for performing Adversary Emulation 
 ## Extract TTPs at the Procedure Level
 
 Unfortunately, Cyber Threat Intelligence and/or Incident Response reports may not include MITRE ATT&CK mapping or adversary procedure level intelligence. The Cyber Threat Intelligence analysts will need to extract TTPs from the Cyber Threat Intelligence acquired and map it to a framework like ATT&CK, the industry standard to identify and document common TTPs of adversaries. Tactics, Techniques, and Procedures are often abbreviated as TTPs and clustered together as one thing: "The adversary's TTPs". However, they represent three different aspects of adversary activity at different levels of abstraction. Tactics are high-level methods to achieve a goal (e.g. Initial Access, Exfiltration). Techniques and sub-techniques are one step down that refer to how that goal will be achieved (e.g. Spear Phishing a link, Credential Dumping). Procedures are the granular step that describes the steps taken in achieving the goal. 
+
+[Chris Peacock's](https://twitter.com/SecurePeacock) released the [TTP Pyramid](https://www.scythe.io/library/summiting-the-pyramid-of-pain-the-ttp-pyramid) which does a fantastic job breaking up the difference between tactics, techniques, and procedures:
+
+<p align="center"> <img src="./images/TTP-Pyramid.png"/> </p>
 
 Procedures are the ideal Cyber Threat Intelligence needed for Purple Team Exercises. They provide the attendees with the exact steps taken by the adversary. With only technique level mapping to ATT&CK, the Red Team is left to choose generic ways for executing the TTP such as [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team/) test cases. 
 
@@ -666,9 +676,45 @@ The Exercise Coordinator may assign more note taking and tracking to members of 
 
 Purple Teaming can be operationalized with dedicated stakeholders from a variety of information security roles (CTI, Red, and Blue teams) working together as a virtual team. When new TTPs are discovered, they are analyzed, discussed, and emulated to continually build and improve detection and response. The process is illustrated below:
 
-![](./images/OperationalizedPurpleTeam.png)
+<p align="center"> <img src="./images/OperationalizedPurpleTeam.png"/> </p>
+
+## New Adversary Behavior or TTP
+Anyone can provide and share details of a new adversary behavior, tactic, technique, or procedure. The CTI team may receive new intelligence from a vendor or from the internal team about a new adversary behavior in the wild, a recent breach, or an external security researcher. The internal Red Team could identify a new TTP in the enviornment or while conducting research. The internal Blue Team can discover new behavior that has not been seen or tracked before. 
+
+Regardless of who identifies the new behavior, it should be communicated to the virtual Purple Team members. This could be done via a ticket tracking system or collaboration tools such as JIRA, PlexTrac, VECTR, or even a spreadsheet. The new use case should be assigned to relevant stakeholders as part of mini-purple team for this new TTP. Depending on the organization, you may allow self assignment by team members or have a manager assign the TTP for the new mini purple team exercise.
+
+## Analyze and Organize the TTPs 
+The next step in an operationalized purple team is to analyze and organize the new adversary behavior, tactic, techniques, and procedures. First, [extract TTPs at the Procedure Level](#extract-ttps-at-the-procedure-level) and map them to MITRE ATT&CK if possible. MITRE ATT&CK allows for a common language between teams and makes the discussions and collaboration easier. Note that MITRE ATT&CK may not have exact mappings for new behaviors as they must be seen in the wild before they are added to the ATT&CK matrix.
+
+Next, correlate the TTPs with what has already been tested in your organization. This requires a decent tracking system. Excel or Google Sheets is the minimum viable product for tracking TTPs as there are solutions made specifically for this including [PlexTrac](https://plextrac.com/), [Tidal](https://www.tidalcyber.com/) , and [VECTR](https://vectr.io).
+
+If this new test case has never been tested, then have a small [tabletop discussion](#table-top-ttps) with the team to understand expectations.
+
+## Emulate TTPs
+The Red Team focuses on emulating the new test case and understanding if the adversary behaviors work in the target enviornment. This involves setting up or reusing attack infrastructure. For operationalized purple teaming, dedicated purple team infrastructure may be stood up for purple team testing. This may include target systems, accounts, and all the standard security tools. If research and testing is performed in a lab enviornment, the Red Team should then try to emulate the attack in production. The assigned Red Teamer(s) should share and show how to emulate the TTPs with the other assigned purple team members.
+
+## Blue Team Results
+Once the TTPs have been validated as possibly working in the target enviornment, it is time for the Blue Team to share the visibility they have into this attack:
+- Was there an alert?
+- Was there telemetry?
+- Are the data sources required being collected?
+- Processing of data sources for queries?
+- Can the Threat Hunt team hunt for these behaviors? 
+
+## Detection Engineering
+If there are gaps that can be addressed:
+- Build detection
+- Deploy
+- Tune
+
+As part of the detection engineering process, the TTPs will need to be emulated consistently and reliably. The Red Team may look into automating this process so they are not performing the same tasks over and over.
+
+The TTPs should be re-ran once the detections have been created to traing the rest of the Blue Team and any other Purple Team member/spectator.
+
+Lastly, the use case should be added to Breach and Attack Simulation or automation solution so that the only alerts related to the new TTP are if there is a real attack or if the detections are no longer working.
 
 # Dedicated Purple Team
+We are starting to see enterprises hiring people to dedicated purple team roles. These roles vary from dedicated Purple Team Exercise Coordinators to engagement management of operationalized purple teams to the main stakeholders operating Breach and Attack Simulation solutions.
 
 # Lessons Learned
 
@@ -724,7 +770,7 @@ We used color coding to emphasize the required balance between threat and detect
 
 # Templates
 
-Templates for Purple Teaming can be found on our [GitHub](https://github.com/scythe-io/purple-team-exercise-framework). We encourage you to contribute by submitting pull requests. 
+Templates for Purple Teaming can be found in the [tempaltes](./templates/) folder. We encourage you to contribute by submitting pull requests. 
 
 # FAQ
 
