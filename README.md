@@ -770,7 +770,7 @@ We used color coding to emphasize the required balance between threat and detect
 
 # Templates
 
-Templates for Purple Teaming can be found in the [tempaltes](./templates/) folder. We encourage you to contribute by submitting pull requests. 
+Templates for Purple Teaming can be found in the [templates](./templates/) folder. We encourage you to contribute by submitting pull requests. 
 
 # FAQ
 
