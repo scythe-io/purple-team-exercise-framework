@@ -1,0 +1,38 @@
+title: Suspicious LOLBAS Discovery Commands
+id: 670f5683-2ea7-478a-a690-d790bf1aaa27
+status: experimental
+description: Detects suspicious discovery LOLBAS commands. This search can lead to FP, recommended to filter out known good or trusted Images.
+references:
+  - https://www.cisa.gov/sites/default/files/2023-07/aa23-187a-increased-truebot-activity-infects-us-and-canada-based-networks_2.pdf
+author: Tyler Casey
+date: 2024-02-29
+tags:
+  - attack.execution
+  - attack.t1059
+logsource:
+  product: windows
+  service: proc_creation
+detection:
+  selection:
+    CommandLine|contains:
+      - 'whoami'
+      - 'vssadmin'
+      - 'msiexec'
+      - 'mstsc'
+      - 'mshta'
+      - 'netsh'
+      - 'set'
+      - 'arp -'
+      - 'netstat'
+      - 'net '
+      - 'w32tm'
+      - 'schtasks'
+      - 'systeminfo'
+      - 'tasklist'
+      - 'ipconfig'
+      - 'qwinsta'
+      - 'quser'
+  condition: selection
+  falsepositives:
+    - Unusual user behavior
+  level: low
