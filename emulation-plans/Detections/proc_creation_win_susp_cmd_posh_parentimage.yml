@@ -1,0 +1,29 @@
+title: Suspicious CMD/POSH ParentImage
+id: 03aa33d7-758c-43e4-9016-520239272a43
+status: experimental
+description: Detects Command Prompt or PowerShell as a child process of an Image not in System32, or Program Files.
+references:
+    - https://support.scythe.io/knowledge/volt-typhoon
+author: Tyler Casey @1qazCasey, @scythe_io
+date: 2024-04-24
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.t1059.003
+logsource:
+    product: windows
+    category: proc_creation
+detection:
+    selection_img:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\cmd.exe'
+    selection_parentimg_exc:
+        ParentImage|contains:
+            - '\Windows\System32'
+            - '\Program Files\'
+            - '\Program Files (x86)\'
+    condition: selection_img and not selection_parentimg_exc
+falsepositives:
+    - Legitimate processes spawning CMD or POSH.
+level: medium

@@ -1,0 +1,38 @@
+title: Suspicious Archive Creation
+id: 756ff96e-6fce-44bc-9998-160951c7bcbf
+status: experimental
+description: Detects suspicious archive creation by uncommon processes. This technique is utilized by Cold River Group's SPICA, and TrueBot malware loader.
+references:
+    - https://support.scythe.io/knowledge/empower-threat-feb2024-coldriver-spica
+author: Tyler Casey @1qazCasey, @scythe_io
+date: 2024-02-28
+tags:
+    - attack.collection
+    - attack.t1560.003
+logsource:
+    product: windows
+    service: file_event
+detection:
+    selection_img: 
+        Image|endswith: #exclude common archive utilities
+            - '\7z.exe'
+            - '\7zg.exe'
+            - '\7zr.exe'
+            - '\7za.exe'
+            - '\explorer.exe'
+    selection_filename:
+        TargetFilename|contains:
+            - '.zip'
+            - '.7z'
+            - '.tar'
+            - '.wim'
+    selection_cmdline:
+        CommandLine|contains:
+            - '.zip'
+            - '.7z'
+            - '.tar'
+            - '.wim'
+    condition: (selection_filename or selection_cmdline) and not selection_img
+falsepositives:
+    -   Other tools that create archives would trigger this alert, they will need to be added to the selection_img to be excluded.
+level: high
